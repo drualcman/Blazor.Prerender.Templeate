@@ -1,9 +1,12 @@
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Hosting.Server.Features;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<HttpClient>(sp =>
 {
-    var server = sp.GetRequiredService<Microsoft.AspNetCore.Hosting.Server.IServer>();
-    var addressFeatures = server.Features.Get<Microsoft.AspNetCore.Hosting.Server.Features.IServerAddressesFeature>();
+    var server = sp.GetRequiredService<IServer>();
+    var addressFeatures = server.Features.Get<IServerAddressesFeature>();
     string baseAddress = addressFeatures.Addresses.First();
     return new HttpClient() { BaseAddress = new Uri(baseAddress) };
 });

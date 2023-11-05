@@ -1,0 +1,14 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="ProjectGroup">
+  <TemplateData>
+    <Name>Prerendered Blazor WebAssembly App</Name>
+    <Description>Templete to generate a prerendered Blazor WebAssembly App</Description>
+    <ProjectType>CSharp</ProjectType>   
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectCollection>
+      <ProjectTemplateLink ProjectName="$safeprojectname$.Api" CopyParameters="true">Prerender.Api\MyTemplate.vstemplate</ProjectTemplateLink>
+      <ProjectTemplateLink ProjectName="$safeprojectname$.Client" CopyParameters="true">Prerender.Client\MyTemplate.vstemplate</ProjectTemplateLink>
+    </ProjectCollection>   
+  </TemplateContent>
+</VSTemplate>
